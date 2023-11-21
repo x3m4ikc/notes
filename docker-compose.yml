@@ -1,0 +1,35 @@
+version: "3.9"
+services:
+  db:
+    image: postgres
+    container_name: postgres_notes
+    volumes:
+      - .:/db
+    environment:
+      - POSTGRES_DB=notes
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - notes
+
+  web:
+    image: notes
+    container_name: notes_web
+    command: bash -c "poetry run alembic upgrade head && poetry run python main.py"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      - POSTGRES_DB=notes
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - db
+    networks:
+      - notes
+
+networks:
+  notes:

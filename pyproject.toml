@@ -14,7 +14,6 @@ sqlalchemy = "^2.0.23"
 pre-commit = "^3.5.0"
 alembic = "^1.12.1"
 asyncpg = "^0.29.0"
-psycopg2 = "^2.9.9"
 uvicorn = "^0.24.0.post1"
 python-jose = "^3.3.0"
 passlib = "^1.7.4"
@@ -22,6 +21,7 @@ fastapi-users = {extras = ["sqlalchemy"], version = "^12.1.2"}
 isort = "^5.12.0"
 black = "^23.11.0"
 flake8 = "^6.1.0"
+psycopg2-binary = "^2.9.9"
 
 
 [build-system]
