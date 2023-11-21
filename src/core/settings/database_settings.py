@@ -1,5 +1,6 @@
-from config import DB_URL
 from pydantic import BaseModel
+
+from config import DB_URL
 
 
 class DatabaseSettings(BaseModel):

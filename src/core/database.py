@@ -1,7 +1,8 @@
 from functools import lru_cache
+
 from pydantic_settings import BaseSettings
 
-from .settings.database_settings import DatabaseSettings, AsyncSessionmakerSettings
+from .settings.database_settings import AsyncSessionmakerSettings, DatabaseSettings
 
 
 class Settings(BaseSettings):

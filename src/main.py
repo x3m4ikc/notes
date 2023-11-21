@@ -3,12 +3,9 @@ from fastapi import FastAPI
 
 from auth.auth import auth_backend, fastapi_users
 from endpoints.endpoints import router
-from schemas.schemas import UserRead, UserCreate
+from schemas.schemas import UserCreate, UserRead
 
-
-app = FastAPI(
-    title="Notes App"
-)
+app = FastAPI(title="Notes App")
 
 
 app.include_router(

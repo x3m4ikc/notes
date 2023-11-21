@@ -1,14 +1,11 @@
-from fastapi import APIRouter, status, Depends, Query
+from fastapi import APIRouter, Depends, Query, status
 
 from auth.auth import current_user
 from models.models import User
 from schemas.schemas import NoteModel
-from services.crud import create_note_crud, edit_note_crud, delete_note_crud, list_notes_crud
+from services.crud import create_note_crud, delete_note_crud, edit_note_crud, list_notes_crud
 
-router = APIRouter(
-    prefix="/note",
-    tags=["Notes"]
-)
+router = APIRouter(prefix="/note", tags=["Notes"])
 
 
 @router.post("/", name="create_note", status_code=status.HTTP_201_CREATED, response_model=NoteModel)
@@ -18,7 +15,9 @@ async def create_note(user: User = Depends(current_user), title: str = Query(), 
 
 
 @router.patch("/", name="edit_note", status_code=status.HTTP_200_OK)
-async def edit_note(user: User = Depends(current_user), title: str = Query(), content: str = Query(), note_id: int = Query()):
+async def edit_note(
+    user: User = Depends(current_user), title: str = Query(), content: str = Query(), note_id: int = Query()
+):
     note_obj = await edit_note_crud(title, content, note_id, user.id)
     return note_obj
 

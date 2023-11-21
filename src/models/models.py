@@ -1,5 +1,6 @@
 from fastapi_users_db_sqlalchemy import SQLAlchemyBaseUserTable
-from sqlalchemy import MetaData, Column, Integer, String, ForeignKey, Boolean, inspect
+from sqlalchemy import (Boolean, Column, ForeignKey, Integer, MetaData, String,
+                        inspect)
 from sqlalchemy.orm import declarative_base
 
 Base = declarative_base()
