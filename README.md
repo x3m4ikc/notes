@@ -24,6 +24,7 @@ I Локально:
 - Создать в БД Postgres пользователя с даннымии: DB_USER, DB_PASS
 - Под пользователем создать БД с именем DB_NAME
 - Изменить содержание переменной DB_HOST в .env
+- Накатить миграции: alembic upgrade head
 - Для установки hook pre-commit необходима команда: poetry run pre-commit install
 - Запуск проекта: находясь в директории src/: poetry run main.py
 
